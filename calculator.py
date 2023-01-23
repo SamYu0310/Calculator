@@ -16,9 +16,10 @@ class MyLayout(Widget):
 
 	def remove(self): 
 		prior = self.ids.calc_input.text
-		if len(prior) >= 1: 
-			prior = prior[:-1]
-			self.ids.calc_input.text = prior
+		if "Error" not in prior: 
+			if len(prior) >= 1: 
+				prior = prior[:-1]
+				self.ids.calc_input.text = prior
 		else: 
 			pass
 
@@ -26,6 +27,8 @@ class MyLayout(Widget):
 		prior = self.ids.calc_input.text 
 		if "Error" in prior: 
 			self.ids.calc_input.text = f'{button}'
+		elif prior = '': 
+			self.ids.calc_input.text = f'{button}' 
 		elif prior == "0" or prior[0] == ' ':
 			self.ids.calc_input.text = f'{button}'
 		else: 
